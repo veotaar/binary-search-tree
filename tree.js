@@ -42,4 +42,9 @@ export default class Tree {
     if (value < node.data) return this.find(value, node.left);
     return this.find(value, node.right);
   }
+
+  findMin(node = this.root) {
+    if (node.left === null) return node.data;
+    return this.findMin(node.left);
+  }
 }
