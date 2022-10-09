@@ -18,4 +18,28 @@ export default class Tree {
 
     return node;
   }
+
+  insert(value, node = this.root) {
+    if (node === null) {
+      node = new Node(value);
+      return node;
+    }
+    if (node.data === value) return;
+
+    if (value < node.data) {
+      node.left = this.insert(value, node.left);
+    } else if (value > node.data) {
+      node.right = this.insert(value, node.right);
+    }
+
+    return node;
+  }
+
+  find(value, node = this.root) {
+    if (node === null) return null;
+    if (value === node.data) return node;
+
+    if (value < node.data) return this.find(value, node.left);
+    return this.find(value, node.right);
+  }
 }

@@ -14,3 +14,21 @@ const data = [-1, 1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 323, 324];
 const tree = new Tree(data);
 
 prettyPrint(tree.root);
+
+tree.insert(31);
+
+prettyPrint(tree.root);
+
+tree.insert(69);
+
+prettyPrint(tree.root);
+
+console.log(tree.find(67));
+console.log(tree.find(8));
+console.log(tree.find(999));
+console.log(tree.find(9));
+console.log(tree.find(69));
+
+tree.delete(6345);
+
+prettyPrint(tree.root);
