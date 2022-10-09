@@ -47,4 +47,20 @@ export default class Tree {
     if (node.left === null) return node.data;
     return this.findMin(node.left);
   }
+
+  delete(value, node = this.root) {
+    if (node === null) return node;
+    if (value > node.data) {
+      node.right = this.delete(value, node.right);
+    } else if (value < node.data) {
+      node.left = this.delete(value, node.left);
+    } else {
+      if (node.left === null) return node.right;
+      if (node.right === null) return node.left;
+
+      node.data = this.findMin(node.right);
+      node.right = this.delete(node.data, node.right);
+    }
+    return node;
+  }
 }
