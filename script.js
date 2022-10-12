@@ -43,3 +43,5 @@ console.log(tree.postorder());
 console.log(tree.postorder((a) => a + 1));
 
 prettyPrint(tree.root);
+
+console.log('Height: ', tree.height());
