@@ -31,5 +31,15 @@ tree.delete(-65);
 prettyPrint(tree.root);
 
 console.log(tree.levelOrder());
-
 console.log(tree.levelOrder((a) => a + 1));
+
+console.log(tree.preorder());
+console.log(tree.preorder((a) => a + 1));
+
+console.log(tree.inorder());
+console.log(tree.inorder((a) => a + 1));
+
+console.log(tree.postorder());
+console.log(tree.postorder((a) => a + 1));
+
+prettyPrint(tree.root);

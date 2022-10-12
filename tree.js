@@ -82,4 +82,41 @@ export default class Tree {
 
     return results;
   }
+
+  preorder(fn = null, node = this.root, results = []) {
+    if (node === null) return;
+
+    const result = fn === null ? node.data : fn(node.data);
+    results.push(result);
+
+    this.preorder(fn, node.left, results);
+    this.preorder(fn, node.right, results);
+
+    return results;
+  }
+
+  inorder(fn = null, node = this.root, results = []) {
+    if (node === null) return;
+
+    this.inorder(fn, node.left, results);
+
+    const result = fn === null ? node.data : fn(node.data);
+    results.push(result);
+
+    this.inorder(fn, node.right, results);
+
+    return results;
+  }
+
+  postorder(fn = null, node = this.root, results = []) {
+    if (node === null) return;
+
+    this.postorder(fn, node.left, results);
+    this.postorder(fn, node.right, results);
+
+    const result = fn === null ? node.data : fn(node.data);
+    results.push(result);
+
+    return results;
+  }
 }
