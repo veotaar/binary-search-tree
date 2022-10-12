@@ -63,4 +63,23 @@ export default class Tree {
     }
     return node;
   }
+
+  levelOrder(fn = null) {
+    const queue = [this.root];
+    const results = [];
+
+    (function handleQueue() {
+      if (queue.length === 0) return;
+
+      const node = queue.shift();
+      const result = fn === null ? node.data : fn(node.data);
+      results.push(result);
+      if (node.left !== null) queue.push(node.left);
+      if (node.right !== null) queue.push(node.right);
+
+      handleQueue();
+    })();
+
+    return results;
+  }
 }

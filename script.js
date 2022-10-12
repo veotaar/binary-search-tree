@@ -29,3 +29,7 @@ prettyPrint(tree.root);
 tree.delete(-65);
 
 prettyPrint(tree.root);
+
+console.log(tree.levelOrder());
+
+console.log(tree.levelOrder((a) => a + 1));
