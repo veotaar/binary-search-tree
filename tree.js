@@ -128,4 +128,18 @@ export default class Tree {
 
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+  depth(value, node = this.root, edges = 0) {
+    if (node === null) return;
+    if (value === node.data) return edges;
+
+    if (value < node.data) {
+      edges += 1;
+      return this.depth(value, node.left, edges);
+    }
+    if (value > node.data) {
+      edges += 1;
+      return this.depth(value, node.right, edges);
+    }
+  }
 }
