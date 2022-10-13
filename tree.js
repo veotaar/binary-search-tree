@@ -24,7 +24,7 @@ export default class Tree {
       node = new Node(value);
       return node;
     }
-    if (node.data === value) return;
+    if (node.data === value) return node;
 
     if (value < node.data) {
       node.left = this.insert(value, node.left);
@@ -147,5 +147,11 @@ export default class Tree {
     if (node === null) return true;
     const heightDiff = Math.abs(this.height(node.left) - this.height(node.right));
     return heightDiff <= 1 && this.isBalanced(node.left) && this.isBalanced(node.right);
+  }
+
+  rebalance() {
+    const arr = mergeSort([...new Set(this.inorder())]);
+    this.root = this.buildTree(arr, 0, arr.length - 1);
+    return this;
   }
 }
