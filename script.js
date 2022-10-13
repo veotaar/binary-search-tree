@@ -10,14 +10,29 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
   }
 };
 
-const data = [-1, 1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 323, 324, -65];
+const createRandomArray = (length, max) =>
+  Array(length)
+    .fill()
+    .map(() => Math.round(Math.random() * max));
+
+const data = createRandomArray(16, 1000);
 const tree = new Tree(data);
 
-tree.insert(31);
-tree.insert(69);
+console.log(prettyPrint(tree.root));
 
-prettyPrint(tree.root);
 console.log(tree.isBalanced());
+
+console.log('Level order:');
+console.log(tree.levelOrder());
+
+console.log('Preorder:');
+console.log(tree.preorder());
+
+console.log('Inorder:');
+console.log(tree.inorder());
+
+console.log('Postorder:');
+console.log(tree.postorder());
 
 tree.insert(100);
 tree.insert(101);
@@ -25,42 +40,21 @@ tree.insert(102);
 tree.insert(103);
 tree.insert(104);
 
-prettyPrint(tree.root);
+console.log(prettyPrint(tree.root));
+
 console.log(tree.isBalanced());
 
-// tree.delete(67);
+console.log(prettyPrint(tree.rebalance().root));
+console.log(tree.isBalanced());
 
-// prettyPrint(tree.root);
+console.log('Level order:');
+console.log(tree.levelOrder());
 
-// tree.delete(31);
+console.log('Preorder:');
+console.log(tree.preorder());
 
-// prettyPrint(tree.root);
+console.log('Inorder:');
+console.log(tree.inorder());
 
-// tree.delete(-65);
-
-// prettyPrint(tree.root);
-
-// console.log(tree.levelOrder());
-// console.log(tree.levelOrder((a) => a + 1));
-
-// console.log(tree.preorder());
-// console.log(tree.preorder((a) => a + 1));
-
-// console.log(tree.inorder());
-// console.log(tree.inorder((a) => a + 1));
-
-// console.log(tree.postorder());
-// console.log(tree.postorder((a) => a + 1));
-
-// prettyPrint(tree.root);
-
-// console.log('Height: ', tree.height());
-
-// console.log(tree.depth(23));
-// console.log(tree.depth(5));
-// console.log(tree.depth(-1));
-// console.log(tree.depth(9));
-// console.log(tree.depth(1));
-// console.log(tree.depth(69));
-// console.log(tree.depth(7));
-// console.log(tree.depth(2333));
+console.log('Postorder:');
+console.log(tree.postorder());
