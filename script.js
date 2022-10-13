@@ -17,31 +17,50 @@ tree.insert(31);
 tree.insert(69);
 
 prettyPrint(tree.root);
+console.log(tree.isBalanced());
 
-tree.delete(67);
-
-prettyPrint(tree.root);
-
-tree.delete(31);
-
-prettyPrint(tree.root);
-
-tree.delete(-65);
+tree.insert(100);
+tree.insert(101);
+tree.insert(102);
+tree.insert(103);
+tree.insert(104);
 
 prettyPrint(tree.root);
+console.log(tree.isBalanced());
 
-console.log(tree.levelOrder());
-console.log(tree.levelOrder((a) => a + 1));
+// tree.delete(67);
 
-console.log(tree.preorder());
-console.log(tree.preorder((a) => a + 1));
+// prettyPrint(tree.root);
 
-console.log(tree.inorder());
-console.log(tree.inorder((a) => a + 1));
+// tree.delete(31);
 
-console.log(tree.postorder());
-console.log(tree.postorder((a) => a + 1));
+// prettyPrint(tree.root);
 
-prettyPrint(tree.root);
+// tree.delete(-65);
 
-console.log('Height: ', tree.height());
+// prettyPrint(tree.root);
+
+// console.log(tree.levelOrder());
+// console.log(tree.levelOrder((a) => a + 1));
+
+// console.log(tree.preorder());
+// console.log(tree.preorder((a) => a + 1));
+
+// console.log(tree.inorder());
+// console.log(tree.inorder((a) => a + 1));
+
+// console.log(tree.postorder());
+// console.log(tree.postorder((a) => a + 1));
+
+// prettyPrint(tree.root);
+
+// console.log('Height: ', tree.height());
+
+// console.log(tree.depth(23));
+// console.log(tree.depth(5));
+// console.log(tree.depth(-1));
+// console.log(tree.depth(9));
+// console.log(tree.depth(1));
+// console.log(tree.depth(69));
+// console.log(tree.depth(7));
+// console.log(tree.depth(2333));
